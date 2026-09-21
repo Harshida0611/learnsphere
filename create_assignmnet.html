@@ -1,0 +1,137 @@
+{% include 'nav.html' %}
+
+{% block content %}
+  <div class="main-content">
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">Create Assignment</h2>
+
+      <div class="card shadow p-4">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="title" id="title" class="form-control form-control-lg" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" rows="6" class="form-control form-control-lg" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="due_date" class="form-label">Due Date</label>
+            <input type="date" name="due_date" id="due_date" class="form-control form-control-lg" required />
+          </div>
+
+          <div class="mb-3 form-check">
+            <input type="checkbox" name="is_completed" id="is_completed" class="form-check-input" />
+            <label for="is_completed" class="form-check-label">Mark as Completed</label><br />
+          </div>
+
+          <!-- PDF file upload -->
+          <div class="mb-3">
+            <label for="pdf_file" class="form-label">Upload PDF</label>
+            <input type="file" name="pdf_file" id="pdf_file" class="form-control form-control-lg" accept=".pdf" />
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+            <button onclick="window.location.href='{% url 'assignment_list' %}';" class="btn btn-secondary btn-lg" type="button">View</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f8fb;
+      margin: 0;
+      padding: 0;
+    }
+    .main-content {
+      background-image: url('https://img.freepik.com/premium-photo/wide-blue-digital-texture-landing-page-concept_670147-34694.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+    
+    .container {
+      width: 60%;
+      margin: 0 auto;
+      margin-left: 16%;
+      margin-top: 20px;
+    }
+    
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    
+    h2 {
+      color: rgb(14, 15, 16);
+      font-size: 2rem;
+    }
+    
+    .form-label {
+      font-weight: bold;
+      color: #333333;
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    .form-control {
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 1.1rem;
+      width: 95%;
+      margin-bottom: 15px;
+    }
+    
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25);
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-success {
+      background-color: rgb(50, 199, 65);
+      border: none;
+    }
+    
+    .btn-secondary {
+      background-color: rgb(70, 198, 226);
+      border: none;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .text-center {
+      display: block;
+      text-align: center;
+    }
+    
+    .form-check-label {
+      color: #333333;
+      font-weight: normal;
+    }
+    
+    .form-check-input {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  </style>
+{% endblock %}

@@ -1,0 +1,172 @@
+{% include 'nav.html' %}
+{% block content %}
+  <div class="main-content">
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">Edit Assignment</h2>
+
+      <div class="card shadow-lg p-4">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="mb-4">
+            <label for="title" class="form-label">Title</label>
+            {{ form.title }}
+          </div>
+
+          <div class="mb-4">
+            <label for="description" class="form-label">Description</label>
+            {{ form.description }}
+          </div>
+
+          <div class="mb-4">
+            <label for="due_date" class="form-label">Due Date</label>
+            {{ form.due_date }}
+          </div>
+
+          <div class="mb-4">
+            <label for="pdf_file" class="form-label">Upload PDF (Optional)</label>
+            {{ form.pdf_file }}
+            {% if form.instance.pdf_file %}
+              <p>
+                Current File: <a href="{{ form.instance.pdf_file.url }}" target="_blank">{{ form.instance.pdf_file.name }}</a>
+              </p>
+            {% endif %}
+          </div>
+
+          <div class="mb-4 form-check">
+            {{ form.is_completed }}
+            <label for="is_completed" class="form-check-label">Mark as Completed</label>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+            <a href="{% url 'assignment_list' %}" class="btn btn-secondary btn-lg">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7fc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .main-content {
+      background-image: url('https://img.freepik.com/premium-photo/wide-blue-digital-texture-landing-page-concept_670147-34694.jpg'); /* Replace with your image path */
+      background-size: cover; /* Ensures the image covers the whole area */
+      background-position: center; /* Centers the image */
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+    .container {
+      width: 50%;
+      margin: 50px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-right: 20%;
+    }
+    
+    h2 {
+      color: #007bff;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #555;
+      display: block;
+    }
+    
+    input[type='text'],
+    textarea,
+    input[type='date'],
+    input[type='file'] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+    
+    input:focus,
+    textarea:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+    }
+    
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .form-check label {
+      font-weight: normal;
+    }
+    
+    .text-center {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .btn {
+      padding: 12px 18px;
+      font-size: 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease-in-out;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: #007bff;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: #6c757d;
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: #5a6268;
+      transform: translateY(-2px);
+    }
+    
+    p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+{% endblock %}
