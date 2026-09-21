@@ -1,0 +1,35 @@
+<html>
+  <nav>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+    <a href="#" class="logo-wrapper">
+      <img src="{% static 'images/Logo.png' %}" alt="LearnSphere Logo" />
+      <span class="logo-text" style="color: white;">LearnSphere</span>
+    </a>
+    <body>
+      <ul>
+        <li>
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+          <a href="{% url 'login' %}">Login</a>
+        </li>
+        <li>
+          <a href="{% url 'display_course' %}">Courses</a>
+        </li>
+        <li>
+          <a href="{% url 'about' %}">About Us</a>
+        </li>
+      </ul>
+      <form method="GET">
+        <input type="search" placeholder="Search courses" name="q" />
+        <button type="submit">Search</button>
+      </form>
+
+      {% block content %}
+
+      {% endblock %}
+    </body>
+  </nav>
+</html>

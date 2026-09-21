@@ -1,0 +1,92 @@
+{% include 'nav.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Holders</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      .main-content {
+        background-image: url('https://img.freepik.com/premium-photo/wide-blue-digital-texture-landing-page-concept_670147-34694.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 120vh;
+      }
+      .container {
+        width: 80%;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        color: #333;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      .no-data {
+        color: red;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="container">
+        <h2>Certificate Holders</h2>
+        {% if certificates %}
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Quiz Title</th>
+                <th>Request Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for certificate in certificates %}
+                <tr>
+                  <td>{{ certificate.id }}</td>
+                  <td>{{ certificate.full_name }}</td>
+                  <td>{{ certificate.email }}</td>
+                  <td>{{ certificate.quiz.title }}</td>
+                  <td>{{ certificate.request_date|date:'Y-m-d H:i' }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p class="no-data">No certificates issued yet.</p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

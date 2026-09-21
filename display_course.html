@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/courses.css' %}" />
+  </head>
+  <style>
+    body {
+      background-image: url('https://tse2.mm.bing.net/th?id=OIP.l999NDl1Oj7eKo-5fXDvBwHaEo&pid=Api&P=0&h=180');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    h3 {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      background-color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+  </style>
+  <body>
+    {% include 'header.html' %}
+
+    <!-- Courses Section -->
+    <section class="courses">
+      <!-- Course 1: Data Science -->
+      <div class="course" id="data-science">
+        <h2>Data Science</h2>
+        <p>Learn how to analyze and interpret complex data to inform business decisions.</p>
+      </div>
+
+      <!-- Course 2: Artificial Intelligence & Machine Learning -->
+      <div class="course" id="ai-ml">
+        <h2>Artificial Intelligence & Machine Learning</h2>
+        <p>Understand the fundamentals of AI and develop models that learn from data.</p>
+      </div>
+
+      <!-- Course 3: Cybersecurity -->
+      <div class="course" id="cybersecurity">
+        <h2>Cybersecurity</h2>
+        <p>Protect systems and networks from digital attacks and learn ethical hacking.</p>
+      </div>
+
+      <!-- Course 4: Cloud Computing -->
+      <div class="course" id="cloud-computing">
+        <h2>Cloud Computing</h2>
+        <p>Gain skills in deploying and managing applications on cloud platforms like AWS and Azure.</p>
+      </div>
+
+      <!-- Course 5: Blockchain -->
+      <div class="course" id="blockchain">
+        <h2>Blockchain</h2>
+        <p>Learn about decentralized technologies and how to develop blockchain applications.</p>
+      </div>
+
+      <!-- Course 6: Web Development -->
+      <div class="course" id="web-development">
+        <h2>Web Development</h2>
+        <p>Learn to build dynamic websites and web applications using modern technologies.</p>
+      </div>
+
+      <!-- Course 7: Data Engineering -->
+      <div class="course" id="data-engineering">
+        <h2>Data Engineering</h2>
+        <p>Gain expertise in building data pipelines and managing large datasets.</p>
+      </div>
+
+      <!-- Course 8: DevOps -->
+      <div class="course" id="devops">
+        <h2>DevOps</h2>
+        <p>Learn about continuous integration, continuous deployment, and automation in software development.</p>
+      </div>
+
+      <!-- Course 9: Mobile App Development -->
+      <div class="course" id="mobile-app-development">
+        <h2>Mobile App Development</h2>
+        <p>Learn how to build mobile apps for iOS and Android using industry-standard frameworks.</p>
+      </div>
+    </section>
+
+    <center>
+      <h3>For other information of subject you can Log in</h3>
+    </center>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Online Learning System</title>
+    {% load static %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}" />
+  </head>
+  <style>
+    .side-nav .nav-item a {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      padding: 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s ease-in-out;
+    }
+  </style>
+  <body>
+    {% csrf_token %}
+    <!-- Sidebar -->
+    <div class="side-nav" id="sideNav">
+      <div class="logo">
+        <a href="#" class="logo-wrapper">
+          <img src="{% static 'images/Logo.png' %}" alt="LearnSphere Logo" />
+          <span class="logo-text" style="color: white">LearnSphere</span>
+        </a>
+      </div>
+      <ul>
+        <li class="nav-item">
+          <a href="{% url 'dashboard' %}"><i class="fa fa-home nav-icon"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'add_quiz' %}"><i class="fa fa-question-circle nav-icon"></i> Quizzes</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'create_announcement' %}"><i class="fa fa-bullhorn nav-icon"></i> Announcements</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'create_assignment' %}"><i class="fa fa-comments nav-icon"></i> Assignment</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'student_list' %}"><i class="fa fa-users nav-icon"></i> Total Students</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

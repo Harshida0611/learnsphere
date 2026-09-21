@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnSphere - Online Learning System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}" />
+    <style>
+      /* General Styles */
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('https://www.designbolts.com/wp-content/uploads/2014/03/Light-Blue-blur-background1.jpg') no-repeat center center/cover;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 115vh;
+      }
+      
+      /* Hero Section */
+      .hero {
+        background: rgba(255, 255, 255, 0.9);
+        width: 90%;
+        max-width: 700px;
+        text-align: center;
+        color: #333;
+        padding: 50px 30px;
+        border-radius: 15px;
+        margin-top: 67px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+      
+      .hero h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      
+      .hero p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      
+      .cta-btn {
+        background: #ff5f6d;
+        color: white;
+        padding: 12px 28px;
+        font-size: 16px;
+        border-radius: 25px;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      
+      .cta-btn:hover {
+        background: #ff3b4a;
+      }
+      
+      /* Features Section */
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 40px;
+      }
+      
+      .feature-item {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 250px;
+        transition: all 0.3s ease-in-out;
+      }
+      
+      .feature-item:hover {
+        transform: scale(1.07);
+      }
+      
+      /* Call to Action */
+      .cta-section {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        width: 90%;
+        max-width: 700px;
+        padding: 40px;
+        border-radius: 15px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+      
+      .cta-section a {
+        background: #ff5f6d;
+        color: white;
+        padding: 12px 28px;
+        font-size: 16px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+      
+      .cta-section a:hover {
+        margin-top: 20px;
+        background: #ff3b4a;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <section class="hero">
+      <h1>Welcome to LearnSphere</h1>
+      <p>Your gateway to world-class learning</p>
+      <a href="{% url 'display_course' %}" class="cta-btn">Explore Courses</a>
+    </section>
+
+    <section class="features">
+      <div class="feature-item">
+        <h3>Expert Instructors</h3>
+        <p>Learn from the best in the industry.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Flexible Learning</h3>
+        <p>Study at your own pace anytime, anywhere.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Career Boost</h3>
+        <p>Gain skills that make a difference.</p>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Start Learning Today</h2><br />
+      <a href="{% url 'Registration' %}">Sign Up Now</a>
+    </section>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

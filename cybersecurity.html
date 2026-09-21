@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Cybersecurity Courses</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .explore-courses {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 20px;
+        margin-left: 22%;
+      }
+      .course-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        min-width: 400px;
+      }
+      .course-card h2 {
+        font-size: 20px;
+        color: #333;
+      }
+      .course-card p {
+        color: #666;
+      }
+      .course-videos iframe {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'stud_nav.html' %}
+
+    <section class="explore-courses">
+      <!-- Course 1: Cyber Security Training for Beginners by Edureka -->
+      <div class="course-card">
+        <h2>Cyber Security Training for Beginners</h2>
+        <p>An introductory course covering fundamental cybersecurity concepts.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/hXSFdwIOfnE" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2ePf9rue1Ao" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/0bMe_vCZo30" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/3Kq1MIfTWCE" allowfullscreen></iframe>
+
+          <iframe src="https://www.youtube.com/embed/lpa8uy4DyMo" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 2: Cybersecurity Training Playlist by John Hammond -->
+      <div class="course-card">
+        <h2>Cybersecurity Training by John Hammond</h2>
+        <p>A series of tutorials covering various cybersecurity topics.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/lt3dUTByggs" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/3ui8zjB7LEA" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2z9Nn4TxkD0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/4RixMPF4xis" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/P0B3BRM1ZFI" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 3: Data Science Tutorials by freeCodeCamp.org -->
+      <div class="course-card">
+        <h2>Data Science Tutorials by freeCodeCamp.org</h2>
+        <p>Free, high-quality tutorials on Data Science topics provided by freeCodeCamp.org.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/ua-CiDNNj30" allowfullscreen></iframe> <!-- Updated link -->
+          <iframe src="https://www.youtube.com/embed/LHBE6Q9XlzI" allowfullscreen></iframe> <!-- Updated link -->
+          <iframe src="https://www.youtube.com/embed/u66ET-j7y_Q" allowfullscreen></iframe>
+          <!-- Updated link -->
+          <iframe src="https://www.youtube.com/embed/LHBE6Q9XlzI" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/XU5pw3QRYjQ" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 4: Data Science Tutorials by Edureka -->
+      <div class="course-card">
+        <h2>Data Science Tutorials by Edureka</h2>
+        <p>Detailed tutorials on various Data Science topics provided by Edureka.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/xiEC5oFsq2s" allowfullscreen></iframe> <!-- Updated link -->
+          <iframe src="https://www.youtube.com/embed/-ETQ97mXXF0" allowfullscreen></iframe> <!-- Updated link -->
+
+          <iframe src="https://www.youtube.com/embed/u66ET-j7y_Q" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/ku_VGr-NaBc" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/-6RqxhNO2yY" allowfullscreen></iframe>
+        </div>
+      </div>
+      <!-- Course 5: Cybersecurity Tutorials by The PC Security Channel -->
+      <div class="course-card">
+        <h2>Cybersecurity Tutorials</h2>
+        <p>Comprehensive tutorials on cybersecurity topics provided by The PC Security Channel.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/fETaIrk9bgo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/3ui8zjB7LEA" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2z9Nn4TxkD0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/4RixMPF4xis" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/P0B3BRM1ZFI" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

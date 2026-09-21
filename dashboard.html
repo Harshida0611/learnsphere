@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Online Learning System</title>
+    {% load static %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}" />
+  </head>
+  <style>
+    .logout-button {
+      background-color: #ff4d4d;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 15px;
+      margin-top: -4.5px;
+    }
+    .logout-button:hover {
+      background-color: #cc0000;
+    }
+  </style>
+
+  <body>
+    {% csrf_token %}
+    <!-- Sidebar -->
+    <div class="side-nav" id="sideNav">
+      <div class="logo">
+        <a href="#" class="logo-wrapper">
+          <img src="{% static 'images/Logo.png' %}" alt="LearnSphere Logo" />
+          <span class="logo-text" style="color: white">LearnSphere</span>
+        </a>
+      </div>
+      <ul>
+        <li class="nav-item">
+          <a href="{% url 'dashboard' %}"><i class="fa fa-home nav-icon"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'add_quiz' %}"><i class="fa fa-question-circle nav-icon"></i> Quizzes</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'create_announcement' %}"><i class="fa fa-bullhorn nav-icon"></i> Announcements</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'create_assignment' %}"><i class="fa fa-comments nav-icon"></i> Assignments</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'student_list' %}"><i class="fa fa-users nav-icon"></i> Total Students</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <p>Dashboard</p>
+        <div class="header-right">
+          <a href="{% url 'login' %}" class="logout-button">Logout</a>
+        </div>
+      </header>
+
+      <!-- Welcome Section -->
+      <main>
+        <div class="welcome-section">
+          <h2>Welcome, Admin</h2>
+          <p>Manage and monitor your platform effectively using the dashboard.</p>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats">
+          <a href="{% url 'add_quiz' %}" class="stat-box">
+            <i class="fa fa-question-circle icon"></i>
+
+            <h3>{{ quiz_count }}</h3>
+            <p>Completed Quizzes</p>
+          </a>
+
+          <a href="{% url 'create_announcement' %}" class="stat-box">
+            <i class="fa fa-bullhorn icon"></i>
+
+            <h3>{{ announcement_count }}</h3>
+            <p>New Announcements</p>
+          </a>
+
+          <a href="{% url 'create_assignment' %}" class="stat-box">
+            <i class="fa fa-comments icon"></i>
+
+            <h3>{{ assignment_count }}</h3>
+            <p>Assignments</p>
+          </a>
+
+          <a href="{% url 'student_list' %}" class="stat-box">
+            <i class="fa fa-users icon"></i>
+
+            <h3>{{ student_count }}</h3>
+            <p>Total Students</p>
+          </a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+<style>
+  .stat-box {
+    text-decoration: none;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .stat-box:hover {
+    transform: scale(1.05);
+  }
+  
+  .stat-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .stat-box h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+  
+  .stat-box p {
+    font-size: 14px;
+    color: #555;
+  }
+</style>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Science Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .explore-courses {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 20px;
+        margin-left: 22%;
+      }
+      .course-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        min-width: 400px;
+      }
+      .course-card h2 {
+        font-size: 20px;
+        color: #333;
+      }
+      .course-card p {
+        color: #666;
+      }
+      .course-videos iframe,
+      .course-videos embed {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'stud_nav.html' %}
+
+    <section class="explore-courses">
+      <!-- Course 1 -->
+      <div class="course-card">
+        <h2>Data Science Fundamentals</h2>
+        <p>Start your journey with the basics of data analysis, visualization, and statistical modeling.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/X3paOmcrTjQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/GwIo3gDZCVQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/ua-CiDNNj30" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/JwSS70SZdyM" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/r-uOLxNrNk8" allowfullscreen></iframe>
+          <embed src="{% static 'pdfs/ds_fundamentals.pdf' %}" type="application/pdf" />
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="course-card">
+        <h2>Python for Data Science</h2>
+        <p>Learn Python programming, data manipulation, and visualization tailored for data science.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/rfscVS0vtbw" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/WGJJIrtnfpk" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/jmX4FOUEfgU" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/N4mEzFDjqtA" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/kqtD5dpn9C8" allowfullscreen></iframe>
+          <embed src="{% static 'pdfs/python_ds.pdf' %}" type="application/pdf" />
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="course-card">
+        <h2>Data Visualization with Tableau</h2>
+        <p>Master the art of creating insightful visualizations and dashboards with Tableau.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/GbszEsOY3wo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/TPMlZxRRaBQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PL1gztxnUtwNdEMZANGZCS2OrpSGt0KDaH" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PL8OpI12Uwnon2tA2hp9D79GVXI9MfnV3k" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PL9ooVrP1hQOH7ni13w776zP_X9ny3Eksv" allowfullscreen></iframe>
+          <embed src="{% static 'pdfs/tableau.pdf' %}" type="application/pdf" />
+        </div>
+      </div>
+
+      <!-- Course 4 -->
+      <div class="course-card">
+        <h2>Big Data Essentials</h2>
+        <p>Explore tools and techniques for working with big data, including Apache Hadoop and Spark.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLxCzCOWd7aiHUUi6ZlansKbDw_cXut0El" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLPIwNooIb9vi4f8tVkzLnr1tll6Pubbqh" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/1QbsgbWAeO4" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLlgLmuG_KgbasW0lpInSAIxYd2vqAEPit" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLLa_h7BriLH0fJRnpcstBpvDoFJNWUsZ_" allowfullscreen></iframe>
+          <embed src="{% static 'pdfs/big_data.pdf' %}" type="application/pdf" />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

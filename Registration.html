@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnSphere</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}" />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const nextBtns = document.querySelectorAll('.next')
+        const prevBtns = document.querySelectorAll('.previous')
+        const fieldsets = document.querySelectorAll('fieldset')
+        const progressbar = document.getElementById('progressbar')
+        let currentStep = 0
+      
+        // Function to validate if all required fields are filled
+        function validateStep(step) {
+          const inputs = fieldsets[step].querySelectorAll('input, textarea')
+          let valid = true
+      
+          // Loop through each input and check if it is filled
+          inputs.forEach((input) => {
+            if (input.hasAttribute('required') && !input.value.trim()) {
+              valid = false
+            }
+          })
+      
+          return valid
+        }
+      
+        // Function to update the progress bar
+        function updateProgressBar() {
+          const steps = progressbar.querySelectorAll('li')
+          steps.forEach((step, index) => {
+            if (index <= currentStep) {
+              step.classList.add('active')
+            } else {
+              step.classList.remove('active')
+            }
+          })
+        }
+      
+        // Event listener for next button
+        nextBtns.forEach((btn) => {
+          btn.addEventListener('click', function () {
+            if (validateStep(currentStep)) {
+              fieldsets[currentStep].classList.remove('active')
+              currentStep++
+              fieldsets[currentStep].classList.add('active')
+              updateProgressBar()
+            } else {
+              alert('Please fill in all required fields.')
+            }
+          })
+        })
+      
+        // Event listener for previous button
+        prevBtns.forEach((btn) => {
+          btn.addEventListener('click', function () {
+            fieldsets[currentStep].classList.remove('active')
+            currentStep--
+            fieldsets[currentStep].classList.add('active')
+            updateProgressBar()
+          })
+        })
+      
+        // Initialize the progress bar on page load
+        updateProgressBar()
+      })
+    </script>
+  </head>
+  <body>
+    {% include 'header.html' %}
+    <div class="regi-bg">
+      <div class="align-form">
+        <form method="POST">
+          {% csrf_token %}
+          <!-- Progressbar -->
+          <ul id="progressbar">
+            <li class="active">Personal Details</li>
+            <li>Account Setup</li>
+            <li>Preferences</li>
+          </ul>
+
+          <!-- Step 1: Personal Details -->
+          <fieldset class="active">
+            <center>
+              <h2 class="fs-title">Personal Details</h2>
+              <h3 class="fs-subtitle">We will never share your details</h3>
+            </center>
+            <input type="text" name="first_name" placeholder="First Name" value="{{ form.first_name.value|default_if_none:'' }}" required />
+            <input type="text" name="last_name" placeholder="Last Name" value="{{ form.last_name.value|default_if_none:'' }}" required />
+            <input type="text" name="phone" placeholder="Phone" value="{{ form.phone.value|default_if_none:'' }}" required />
+            <textarea name="address" placeholder="Address" required>{{ form.address.value|default_if_none:'' }}</textarea>
+            <button type="button" name="next" class="next action-button">Next</button>
+          </fieldset>
+
+          <!-- Step 2: Account Setup -->
+          <fieldset>
+            <center>
+              <h2 class="fs-title">Create your account</h2>
+              <h3 class="fs-subtitle">This is step 2</h3>
+            </center>
+            <input type="text" name="email" placeholder="Email" value="{{ form.email.value|default_if_none:'' }}" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+            <button type="button" name="previous" class="previous action-button">Previous</button>
+            <button type="button" name="next" class="next action-button">Next</button>
+          </fieldset>
+
+          <!-- Step 3: Preferences -->
+          <fieldset>
+            <center>
+              <h2 class="fs-title">Preferences</h2>
+              <h3 class="fs-subtitle">Personalize your experience</h3>
+            </center>
+            <label for="technology">Technology</label>
+            <input type="text" name="technology" placeholder="Technology" value="{{ form.technology.value|default_if_none:'' }}" />
+            <label for="photo">Upload your photo (Optional):</label>
+            <input type="file" name="photo" id="photo" accept="image/*" />
+            <button type="button" name="previous" class="previous action-button">Previous</button>
+            <button type="submit" class="submit action-button">Submit</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="footer-regi">
+      {% include 'footer.html' %}
+    </div>
+  </body>
+</html>

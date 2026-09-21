@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevOps Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .explore-courses {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 20px;
+        margin-left: 22%;
+      }
+      .course-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        min-width: 400px;
+      }
+      .course-card h2 {
+        font-size: 20px;
+        color: #333;
+      }
+      .course-card p {
+        color: #666;
+      }
+      .course-videos iframe {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'stud_nav.html' %}
+
+    <section class="explore-courses">
+      <div class="course-card">
+        <h2>DevOps Fundamentals</h2>
+        <p>Understand the basics of DevOps, automation, and CI/CD pipelines.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/bH42wDyHRzk" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/CRzhWo82s5c" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/x-7-uyuzYrM" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/aonA7Kb7WGE" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/4BibQ69MD8c" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <h2>CI/CD Pipelines</h2>
+        <p>Learn about continuous integration and deployment in DevOps workflows.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/qP8kir2GUgo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/z7nLsJvEyMY" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/G1u4WBdlWgU" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/KnSBNd3b0qI" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/scEDHsr3APg" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <h2>Infrastructure as Code</h2>
+        <p>Explore Terraform, Ansible, and other IaC tools for managing infrastructure.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/zWw2wuiKd5o" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/fE4gY-SydKo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/EtEb40LE5zQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/IvY_o23y1zs" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/pTt6Ol_jalI" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <h2>Monitoring & Logging</h2>
+        <p>Learn monitoring tools like Prometheus, Grafana, and ELK stack.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/nD6JfA9nGOg" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/MaQhl44sLDQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Z6Rz4UaRPiM" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/hqNvIjoHvbU" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/dqzzYPSzgR4" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <h2>Docker & Kubernetes</h2>
+        <p>Understand containerization and Kubernetes for DevOps deployment.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/kTp5xUtcalw" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/bhBSlnQcq2k" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/X48VuDVv0do" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/kVGbMtH7PXI" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/6TpXObxxFOU" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

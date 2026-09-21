@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+      /* Background Animation */
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      
+      /* Body Styling */
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298, #ff7eb3);
+        background-size: 200% 200%;
+        animation: gradientMove 6s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url('https://img.freepik.com/premium-vector/grey-white-abstract-technology-background-hi-tech-digital-connect-high-technology-concept_262356-626.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      
+      /* Payment Box with Glassmorphism */
+      .payment-container {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(15px);
+        max-width: 400px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .payment-container:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.5);
+      }
+      
+      /* Header */
+      h2 {
+        color: black;
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      /* Amount Text */
+      p {
+        font-size: 20px;
+        color: rgb(12, 12, 12);
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+      
+      /* Payment Button with Neon Glow */
+      .pay-button {
+        background: linear-gradient(90deg, #ff9966, #ff5e62);
+        color: #fff;
+        border: none;
+        padding: 14px 26px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 30px;
+        box-shadow: 0px 4px 15px rgba(255, 94, 98, 0.6);
+        transition: all 0.3s ease-in-out;
+        outline: none;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .pay-button::before {
+        content: '';
+        position: absolute;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 80%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: 0.3s ease;
+      }
+      
+      .pay-button:hover::before {
+        opacity: 1;
+        width: 400%;
+        height: 400%;
+      }
+      
+      .pay-button:hover {
+        background: linear-gradient(90deg, #ff5e62, #ff9966);
+        box-shadow: 0px 6px 20px rgba(255, 94, 98, 0.8);
+        transform: translateY(-3px);
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 500px) {
+        .payment-container {
+          width: 90%;
+          padding: 20px;
+        }
+      
+        .pay-button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'stud_nav.html' %}
+
+    <div class="payment-container">
+      <h2>Secure Payment</h2>
+      <p>Amount: ₹{{ razorpay_amount|floatformat:2 }}</p>
+
+      <button id="pay-button" class="pay-button">Pay ₹200 Now</button>
+    </div>
+
+    <script>
+      var options = {
+        key: '{{ razorpay_merchant_key|escapejs }}',
+        amount: '20000', // ₹200 in paise
+        currency: '{{ currency|escapejs }}',
+        name: 'Learnsphere',
+        description: 'Payment for Order #{{ razorpay_order_id|escapejs }}',
+        order_id: '{{ razorpay_order_id|escapejs }}',
+        handler: function (response) {
+          var form = document.createElement('form')
+          form.method = 'POST'
+          form.action = '{{ callback_url|escapejs }}'
+      
+          var csrfToken = '{{ csrf_token }}'
+      
+          form.innerHTML =
+            `<input type="hidden" name="razorpay_payment_id" value="` +
+            response.razorpay_payment_id +
+            `">
+                                     <input type="hidden" name="razorpay_order_id" value="` +
+            response.razorpay_order_id +
+            `">
+                                     <input type="hidden" name="razorpay_signature" value="` +
+            response.razorpay_signature +
+            `">
+                                     <input type="hidden" name="csrfmiddlewaretoken" value="` +
+            csrfToken +
+            `">`
+      
+          document.body.appendChild(form)
+          form.submit()
+        },
+        prefill: {
+          name: 'Your Name',
+          email: 'youremail@example.com',
+          contact: '9999999999'
+        },
+        theme: {
+          color: '#ff5e62'
+        }
+      }
+      
+      document.getElementById('pay-button').onclick = function () {
+        var rzp1 = new Razorpay(options)
+        rzp1.open()
+      }
+    </script>
+  </body>
+</html>

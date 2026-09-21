@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infrastructure as Code (IaC) - Resources</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        background: #f9f9f9;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://img.freepik.com/premium-vector/grey-white-abstract-technology-background-hi-tech-digital-connect-high-technology-concept_262356-626.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      
+      .resources-container {
+        width: 70%;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-left: 20%;
+      }
+      
+      .resources-title {
+        color: #007bff;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+      
+      .section h3 {
+        color: #333;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 5px;
+      }
+      
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      
+      ul li {
+        margin-bottom: 10px;
+      }
+      
+      ul li a {
+        color: #007bff;
+        text-decoration: none;
+        font-size: 18px;
+      }
+      
+      ul li a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'stud_nav.html' %}
+    <div class="resources-container">
+      <h2 class="resources-title">📚 Infrastructure as Code (IaC) - Learning Resources</h2>
+
+      <div class="section">
+        <h3>📺 Video Tutorials</h3>
+        <ul>
+          <li>
+            <a href="https://www.youtube.com/watch?v=LgP21wD6fgQ" target="_blank">Introduction to Infrastructure as Code (IaC)</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=1Xv9RmDkgoY" target="_blank">Learn Terraform - Infrastructure as Code</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=2IqilxW5c3o" target="_blank">AWS CloudFormation Tutorial | Infrastructure as Code</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>📄 PDF Documentation</h3>
+        <ul>
+          <li>
+            <a href="https://www.terraform.io/intro/index.html" target="_blank">Terraform: Up & Running (PDF)</a>
+          </li>
+          <li>
+            <a href="https://d1.awsstatic.com/whitepapers/Infrastructure%20as%20Code%20with%20AWS%20CloudFormation.pdf" target="_blank">AWS CloudFormation Whitepaper</a>
+          </li>
+          <li>
+            <a href="https://www.manning.com/books/learning-terraform" target="_blank">Learning Terraform - Manning Publications</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>📝 Interactive Learning</h3>
+        <ul>
+          <li>
+            <a href="https://learn.hashicorp.com/collections/terraform/aws-get-started" target="_blank">HashiCorp Learn: Terraform on AWS</a>
+          </li>
+          <li>
+            <a href="https://www.udemy.com/course/learn-terraform/" target="_blank">Udemy: Learn Terraform from Scratch</a>
+          </li>
+          <li>
+            <a href="https://www.coursera.org/learn/infrastructure-as-code" target="_blank">Coursera: Infrastructure as Code with Terraform</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

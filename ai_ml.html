@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI and Machine Learning Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .explore-courses {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 20px;
+        margin-left: 22%;
+      }
+      .course-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        min-width: 400px;
+      }
+      .course-card h2 {
+        font-size: 20px;
+        color: #333;
+      }
+      .course-card p {
+        color: #666;
+      }
+      .course-videos iframe {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'stud_nav.html' %}
+
+    <section class="explore-courses">
+      <!-- Course 1 -->
+      <div class="course-card">
+        <h2>AI and Machine Learning Full Course</h2>
+        <p>A comprehensive guide to Artificial Intelligence and Machine Learning concepts.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/wnqkfpCpK1g" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/VOaoabf3LPM" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/0oyDqO8PjIg" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/qYNweeDHiyU" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Yq0QkCxoTHM" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="course-card">
+        <h2>Machine Learning for Everybody</h2>
+        <p>An accessible introduction to Machine Learning for all audiences.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/i_LwzRVP7bg" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/vStJoetOxJg" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/tmB5JIX3Lxk" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/UzxYlbK2c7E" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/6M5VXKLf4D4" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="course-card">
+        <h2>Stanford CS229: Machine Learning</h2>
+        <p>Stanford's renowned Machine Learning course led by Andrew Ng.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/5tvmMX8r_OM" allowfullscreen></iframe>
+
+          <iframe src="https://www.youtube.com/embed/GwIo3gDZCVQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/X3paOmcrTjQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/qzR62JJCMBQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/aircAruvnKk" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 4 -->
+      <div class="course-card">
+        <h2>Artificial Intelligence and Machine Learning Simplified</h2>
+        <p>Breaking down AI and ML concepts into simple, digestible lessons.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/4RixMPF4xis" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/P0B3BRM1ZFI" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/fETaIrk9bgo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/3ui8zjB7LEA" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2z9Nn4TxkD0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 5 -->
+      <div class="course-card">
+        <h2>Intro to Machine Learning featuring Generative AI</h2>
+        <p>Learn the basics of Machine Learning with a focus on Generative AI.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/tmB5JIX3Lxk" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/rLf3jnHxSmU" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/0bMe_vCZo30" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2ePf9rue1Ao" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/h0e2HAPTGF4" allowfullscreen></iframe> <!-- Fixed ✅ -->
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

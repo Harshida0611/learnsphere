@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blockchain Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .explore-courses {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 20px;
+        margin-left: 22%;
+      }
+      .course-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        min-width: 400px;
+      }
+      .course-card h2 {
+        font-size: 20px;
+        color: #333;
+      }
+      .course-card p {
+        color: #666;
+      }
+      .course-videos iframe {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'stud_nav.html' %}
+
+    <section class="explore-courses">
+      <!-- Course 1: Blockchain Technology Full Course for Beginners by Simplilearn -->
+      <div class="course-card">
+        <h2>Blockchain Technology Full Course for Beginners</h2>
+        <p>A comprehensive introduction to blockchain technology covering fundamental concepts and applications.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/9aXHQ98TMRY" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/AWPisuBx1Zo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/SSo_EIwHSd4" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Pl8OlkkwRpc" allowfullscreen></iframe>
+          <!-- Updated link -->
+          <iframe src="https://www.youtube.com/embed/9aXHQ98TMRY" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 2: Blockchain Tutorial for Beginners by Edureka -->
+      <div class="course-card">
+        <h2>Blockchain Tutorial for Beginners</h2>
+        <p>An 8-hour in-depth tutorial covering blockchain fundamentals, Bitcoin, Ethereum, and smart contracts.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/IPbmapxHKjw" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/6WG7D47tGb0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/xIDL_akeras" allowfullscreen></iframe>
+
+          <iframe src="https://www.youtube.com/embed/3aGSqasVPsI" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/IPbmapxHKjw" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 3: Learn Solidity, Blockchain Development, & Smart Contracts -->
+      <div class="course-card">
+        <h2>Learn Solidity, Blockchain Development, & Smart Contracts</h2>
+        <p>A full introduction into core concepts related to blockchain, smart contracts, and Solidity programming.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/umepbfKp5rI" allowfullscreen></iframe>
+
+          <iframe src="https://www.youtube.com/embed/-1GB6m39-rM" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/9aXHQ98TMRY" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/GdhogrvF1s8" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/M576WGiDBdQ" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 4: Learn Blockchain & Solidity Development Full Course 2024 -->
+      <div class="course-card">
+        <h2>Learn Blockchain & Solidity Development Full Course 2024</h2>
+        <p>A comprehensive course covering blockchain and Solidity development, including hands-on projects.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/jcgfQEbptdo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/gyMwXuJrbJQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/IPbmapxHKjw" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/6WG7D47tGb0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/xIDL_akeras" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 5: Intro to Blockchain Programming [FULL COURSE 2023] -->
+      <div class="course-card">
+        <h2>Intro to Blockchain Programming [FULL COURSE 2023]</h2>
+        <p>A practical step-by-step roadmap to becoming a Web3 and blockchain developer, including Solidity and Web3.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/cGQHXmCS94M" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/0JuRzN6T70I" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/l9jOJk30eQs" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/8jI1TuEaTro" allowfullscreen></iframe> <!-- Updated link -->
+
+          <iframe src="https://www.youtube.com/embed/4YQ4svkETS0" allowfullscreen></iframe> <!-- Updated link -->
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

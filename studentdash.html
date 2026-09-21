@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Online Learning System</title>
+    {% load static %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/studentdash.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}" />
+  </head>
+  <style>
+    .side-nav .nav-item a {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      padding: 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s ease-in-out;
+    }
+    .logout-button {
+      background-color: #ff4d4d;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 15px;
+      margin-top: 11px;
+    }
+    .logout-button:hover {
+      background-color: #cc0000;
+    }
+    .stat-box {
+      text-decoration: none;
+    }
+  </style>
+  <body>
+    {% csrf_token %}
+    <!-- Sidebar -->
+    {% include 'stud_nav.html' %}
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header with Settings & Logout -->
+      <header>
+        <p>Dashboard</p>
+        <div class="header-right">
+          <a href="{% url 'login' %}" class="logout-button">Logout</a>
+        </div>
+      </header>
+
+      <!-- Welcome Section -->
+      <main>
+        <div class="welcome-section">
+          <h2>
+            Welcome,{% if student.first_name %}
+              {{ student.first_name }}
+            {% else %}
+              Student
+            {% endif %}
+          </h2>
+          <p>Access your courses, quizzes, and track your courses here.</p>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats">
+          <a href="{% url 'quiz_list' %}" class="stat-box">
+            <i class="fa fa-question-circle icon"></i>
+            <div>
+              <h3>{{ quiz_count }}</h3>
+              <p>Completed Quizzes</p>
+            </div>
+          </a>
+          <a href="{% url 'stud_announcement' %}" class="stat-box">
+            <i class="fa fa-bullhorn icon"></i>
+            <div>
+              <h3>{{ announcement_count }}</h3>
+              <p>New Announcements</p>
+            </div>
+          </a>
+          <a href="{% url 'student_assignment_list' %}" class="stat-box">
+            <i class="fa fa-comments icon"></i>
+            <div>
+              <h3>{{ assignment_count }}</h3>
+              <p>Assignments</p>
+            </div>
+          </a>
+          <a href="{% url 'courses' %}" class="stat-box">
+            <i class="fa fa-book icon"></i>
+            <div>
+              <h3>9</h3> <!-- Keeping this unchanged -->
+              <p>Courses</p>
+            </div>
+          </a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

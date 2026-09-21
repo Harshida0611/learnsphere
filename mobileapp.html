@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile App Development Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .explore-courses {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 20px;
+        margin-left: 22%;
+      }
+      .course-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        min-width: 400px;
+      }
+      .course-card h2 {
+        font-size: 20px;
+        color: #333;
+      }
+      .course-card p {
+        color: #666;
+      }
+      .course-videos iframe {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'stud_nav.html' %}
+    <section class="explore-courses">
+      <!-- Android App Development -->
+      <div class="course-card">
+        <h2>Android App Development</h2>
+        <p>Learn to build Android applications using Java and Kotlin.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/fis26HvvDII" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/kMI2jy-WlGM" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/saKrGCWlJDs" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2zC6I24Hp2o" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/3kaGC_DrUnw" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- iOS App Development -->
+      <div class="course-card">
+        <h2>iOS App Development</h2>
+        <p>Master the art of creating iOS applications using Swift and SwiftUI.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/nqTcAzPS3oc" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/XJe83NXTmw0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/8Xcq4yRQ0pU" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/91AvCeocllE" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/bPaMdq8WaBQ" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- React Native Development -->
+      <div class="course-card">
+        <h2>React Native Development</h2>
+        <p>Build cross-platform mobile apps using React Native.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/0-S5a0eXPoc" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/ZBCUegTZF7M" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/a_SthPXtV6c" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/WDunoPNBxKA" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/f8Z9JyB2EIE" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Flutter Development -->
+      <div class="course-card">
+        <h2>Flutter Development</h2>
+        <p>Learn to create beautiful and fast apps with Flutter.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/VPvVD8t02U8" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/1ukSR1GRtMU" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/TclK5gNM_PM" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/3kaGC_DrUnw" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/5lDJNFSWUD8" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

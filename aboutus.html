@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - OLMS</title>
+    {% load static %}
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}" />
+  </head>
+  <body>
+    <!-- Navbar Starts -->
+    {% include 'header.html' %}
+    <!-- Navbar Ends -->
+
+    <!-- About Us Section Starts -->
+    <section class="about-us">
+      <div class="container">
+        <div class="about-content">
+          <!-- Left Side Images -->
+          <div class="about-images">
+            <img src="https://img.freepik.com/free-vector/man-doing-graphing-presentation-through-laptop_1150-35050.jpg" alt="Education Image 1" />
+            <img src="https://img.freepik.com/free-vector/communication-flat-icon_1262-18771.jpg" alt="Education Image 2" />
+            <img src="https://img.freepik.com/premium-vector/workers-thinking-brainstorming-company-information-analytics-modern-vector-flat-illustration_720185-26.jpg" alt="Education Image 3" />
+          </div>
+
+          <!-- Right Side Text Content -->
+          <div class="about-text">
+            <h1>About Us</h1>
+            <b><p>Welcome to the Online Learning Management System (LearnSphere), your trusted partner in education and skill development. We are committed to providing a platform that connects learners and educators, fostering a vibrant and engaging learning environment.</p>
+            <p>At OLMS, our mission is to empower individuals with the knowledge and skills they need to excel in their personal and professional lives. Whether you're looking to learn new skills, explore career opportunities, or simply pursue your passions, we are here to help you every step of the way.</p>
+            <h2>Our Vision</h2>
+            <p>To be a global leader in online education, transforming lives through accessible, flexible, and innovative learning solutions.</p>
+            <h2>Why Choose Us?</h2>
+            <ul>
+              <li>Extensive catalog of courses across various disciplines.</li>
+              <li>Top-tier instructors with real-world expertise.</li>
+              <li>Flexible and accessible learning options to suit your lifestyle.</li>
+              <li>Supportive community and tools to help you succeed.</li></b>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Us Section Ends -->
+
+    <!-- Footer Starts -->
+    {% include 'footer.html' %}
+    <!-- Footer Ends -->
+  </body>
+</html>

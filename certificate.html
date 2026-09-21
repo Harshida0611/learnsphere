@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate of Completion</title>
+
+    <style>
+      body {
+        font-family: 'Times New Roman', serif;
+        text-align: center;
+        padding: 50px;
+        border: 10px solid gold;
+        background: url('https://yourdomain.com/static/images/certificate_bg.png') no-repeat center center;
+        background-size: cover;
+      }
+      
+      .certificate-container {
+        border: 5px solid black;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+      }
+      
+      .logo {
+        width: 120px;
+        height: auto;
+      }
+      
+      h1 {
+        font-size: 40px;
+        margin: 20px 0;
+      }
+      
+      .certificate-text {
+        font-size: 22px;
+      }
+      
+      .name {
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: underline;
+        margin: 10px 0;
+      }
+      
+      .course {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+      }
+      
+      .approved {
+        font-size: 26px;
+        font-weight: bold;
+        color: green;
+        border: 2px solid green;
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+      }
+      
+      .signature {
+        margin-top: 50px;
+        font-size: 18px;
+        border-top: 1px solid black;
+        display: inline-block;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="certificate-container">
+      <img src="D:\django-project\LearnSphere\static\images\Learnsphere_Logo.png " alt="LearnSphere Logo" class="logo" />
+      <p>LearnSphere</p>
+      <h1>Certificate of Completion</h1>
+      <p class="certificate-text">{{ certificate_text }}</p>
+      <p class="name">{{ full_name }}</p>
+      <p>has successfully completed the course</p>
+      <p class="course">{{ course }}</p>
+      <p>This certificate is from LearnSphere</p>
+
+      <div class="signature">{{ signature_text }}</div>
+    </div>
+  </body>
+</html>

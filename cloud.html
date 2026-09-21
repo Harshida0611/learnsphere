@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud Computing Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .explore-courses {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 20px;
+        margin-left: 22%;
+      }
+      .course-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        min-width: 400px;
+      }
+      .course-card h2 {
+        font-size: 20px;
+        color: #333;
+      }
+      .course-card p {
+        color: #666;
+      }
+      .course-videos iframe {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'stud_nav.html' %}
+
+    <section class="explore-courses">
+      <!-- Course 1: Cloud Computing Full Course by Simplilearn -->
+      <div class="course-card">
+        <h2>Cloud Computing Full Course</h2>
+        <p>A comprehensive introduction to Cloud Computing concepts and practices.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/RWgW-CgdIk0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/M988_fsOSWo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/SqqDCV_muIE" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2LaAJq1lB1Q" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/FxTEOuHF6bA" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 2: Cloud Computing Tutorial for Beginners by Edureka -->
+      <div class="course-card">
+        <h2>Cloud Computing Tutorial for Beginners</h2>
+        <p>An in-depth tutorial series covering fundamental Cloud Computing topics.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/SOTamWNgDKc" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2LaAJq1lB1Q" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/cDXdVJa_N3Q" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/6b7m-gpwgsQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/kQnNd-DyrpA" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 3: AWS Cloud Computing by freeCodeCamp -->
+      <div class="course-card">
+        <h2>AWS Cloud Computing by freeCodeCamp</h2>
+        <p>Learn AWS cloud fundamentals, architecture, and services.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/2KcZgdsuMto" allowfullscreen></iframe>
+
+          <iframe src="https://www.youtube.com/embed/6b7m-gpwgsQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/kQnNd-DyrpA" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/cDXdVJa_N3Q" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/xiEC5oFsq2s" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 4: Google Cloud Platform (GCP) Basics -->
+      <div class="course-card">
+        <h2>Google Cloud Platform (GCP) Basics</h2>
+        <p>Step-by-step tutorials on Google Cloud services and architecture.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/3ui8zjB7LEA" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/2z9Nn4TxkD0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/4RixMPF4xis" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/P0B3BRM1ZFI" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/ku_VGr-NaBc" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Course 5: Microsoft Azure Fundamentals -->
+      <div class="course-card">
+        <h2>Microsoft Azure Fundamentals</h2>
+        <p>Learn about Azure cloud computing and its core services.</p>
+        <div class="course-videos">
+          <iframe src="https://www.youtube.com/embed/XU5pw3QRYjQ" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/LHBE6Q9XlzI" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/u66ET-j7y_Q" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/-6RqxhNO2yY" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/lt3dUTByggs" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

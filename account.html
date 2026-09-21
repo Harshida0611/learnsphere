@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Online Learning System</title>
+    {% load static %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/logo.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <style>
+      .settings-container {
+        width: 100%;
+        max-width: 900px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10%;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    {% csrf_token %}
+    {% include 'stud_nav.html' %}
+
+    <div class="main-content">
+      <div class="settings-container">
+        <div class="settings-box">
+          <div class="form-section">
+            <h2>Account Settings</h2>
+            <form id="updateForm" method="POST">
+              {% csrf_token %}
+              <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" value="{% if user.email %}{{ user.email }}{% endif %}" required />
+              </div>
+              <div class="input-group">
+                <label for="password">New Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your new password" />
+              </div>
+              <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your new password" />
+              </div>
+              <button type="submit" class="save-btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ JavaScript for AJAX Submission -->
+    <script>
+      document.getElementById('updateForm').addEventListener('submit', function (event) {
+        event.preventDefault() // Prevent normal form submission
+      
+        let formData = new FormData(this)
+      
+        fetch("{% url 'update_profile' %}", {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+          }
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert('✅ Profile updated successfully!')
+            } else {
+              alert('❌ Error updating profile: ' + data.error)
+            }
+          })
+          .catch((error) => {
+            alert('❌ Something went wrong. Please try again.')
+          })
+      })
+    </script>
+  </body>
+</html>

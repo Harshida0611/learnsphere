@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <link rel="icon" href="images/desk.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <title>Login Page</title>
+  </head>
+
+  <body>
+    <!-- Background Video Element -->
+    <video autoplay muted loop id="background-video">
+      <source src="{% static 'video/banvid.mp4' %}" type="video/mp4" />Your browser does not support the video tag.
+    </video>
+
+    <!-- Navbar -->
+    {% include 'header.html' %}
+
+    <!-- Content Block (Main Content like Form) -->
+    <div class="login-box">
+      <form method="post" id="login-form">
+        {% csrf_token %}
+        <h2>Login</h2>
+
+        <!-- Email Input -->
+        <div class="input-box">
+          <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+          <input type="email" name="email" id="email" required />
+          <label for="">Email</label>
+        </div>
+
+        <!-- Password Input -->
+        <div class="input-box">
+          <span class="icon"><i class="fa-solid fa-lock"></i></span>
+          <input type="password" name="password" id="password" required />
+          <label for="">Password</label>
+        </div>
+
+        <!-- User Type Selection -->
+        <div class="user-type-selection">
+          <label><input type="radio" name="user_type" value="student" id="student" />Student</label>
+          <label><input type="radio" name="user_type" value="admin" id="admin" />Admin</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="button" onclick="setFormAction()">Login</button>
+
+        <!-- Remember Me & Forgot Password -->
+        <div class="remember-forgot">
+          <label><input type="checkbox" />Remember me</label>
+          <a href="{% url 'verify_otp' %}">Forgot password?</a>
+        </div>
+
+        <div class="link">
+          <p>
+            Don't have an account?
+            <a href="{% url 'Registration' %}">Register</a>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      async function setFormAction() {
+        const form = document.getElementById('login-form')
+        const email = document.getElementById('email').value
+        const password = document.getElementById('password').value
+        const studentRadio = document.getElementById('student')
+        const adminRadio = document.getElementById('admin')
+      
+        // Admin credentials check (front-end only)
+        const adminEmail = 'admin@gmail.com'
+        const adminPassword = 'admin'
+      
+        if (email === adminEmail && password === adminPassword) {
+          if (adminRadio.checked) {
+            form.action = "{% url 'dashboard' %}"
+            form.submit()
+          } else {
+            alert('Please select Admin to log in as Admin.')
+          }
+        } else if (studentRadio.checked) {
+          try {
+            const response = await fetch('/get-registered-users/') // Fetch registered users
+            const registeredUsers = await response.json()
+      
+            const user = registeredUsers.find((user) => user.email === email && user.password === password)
+      
+            if (user) {
+              form.action = "{% url 'studentdash' %}"
+              form.submit()
+            } else {
+              alert('Invalid email or password. Please try again.')
+            }
+          } catch (error) {
+            console.error('Error fetching registered users:', error)
+            alert('An error occurred while verifying the user. Please try again.')
+          }
+        } else {
+          alert('Invalid credentials or user type. Please try again.')
+        }
+      }
+    </script>
+  </body>
+</html>
