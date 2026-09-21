@@ -1,0 +1,129 @@
+{% include 'stud_nav.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ quiz.title }}</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url('https://img.freepik.com/premium-vector/grey-white-abstract-technology-background-hi-tech-digital-connect-high-technology-concept_262356-626.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 100vh;
+      }
+      .container {
+        width: 50%;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        position: absolute;
+        top: 140%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+      p {
+        text-align: center;
+        font-size: 16px;
+        color: #555;
+      }
+      .question {
+        background: #eef2f7;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+      }
+      .option input {
+        margin-right: 10px;
+      }
+      .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .back-link:hover {
+        color: #0056b3;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #28a745;
+        color: white;
+        transition: 0.3s;
+      }
+      button:hover {
+        background-color: #1e7e34;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>{{ quiz.title }}</h2>
+      <p>
+        <strong>Description:</strong> {{ quiz.description }}
+      </p>
+      <p>
+        <strong>Due Date:</strong> {{ quiz.due_date }}
+      </p>
+
+      <h3>Questions</h3>
+      <form method="POST" action="{% url 'submit_quiz' quiz.id %}">
+        {% csrf_token %}
+        {% for question in questions %}
+          <div class="question">
+            <p>
+              <strong>{{ question.text }}</strong>
+            </p>
+            <div class="options">
+              <label class="option"><input type="radio" name="question_{{ question.id }}" value="1" required /> {{ question.option1 }}</label>
+              <label class="option"><input type="radio" name="question_{{ question.id }}" value="2" /> {{ question.option2 }}</label>
+              <label class="option"><input type="radio" name="question_{{ question.id }}" value="3" /> {{ question.option3 }}</label>
+              <label class="option"><input type="radio" name="question_{{ question.id }}" value="4" /> {{ question.option4 }}</label>
+            </div>
+          </div>
+        {% empty %}
+          <p>No questions available.</p>
+        {% endfor %}
+        <button type="submit">Submit Answers</button>
+      </form>
+
+      <a href="{% url 'quiz_list' %}" class="back-link">← Back to Quizzes</a>
+    </div>
+  </body>
+</html>

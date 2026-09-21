@@ -1,0 +1,166 @@
+{% include 'stud_nav.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz List</title>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #f8f9fa, #e3eaf1);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url('https://img.freepik.com/premium-vector/grey-white-abstract-technology-background-hi-tech-digital-connect-high-technology-concept_262356-626.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      
+      .container {
+        width: 90%;
+        max-width: 700px;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        margin-left: 20%;
+      }
+      
+      .score-box {
+        background: #28a745;
+        color: white;
+        padding: 18px;
+        border-radius: 8px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      .certificate-form {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+      }
+      
+      .certificate-form input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+      }
+      
+      .certificate-form button {
+        background: #007bff;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: 0.3s;
+      }
+      
+      .certificate-form button:hover {
+        background: #0056b3;
+      }
+      
+      .quiz-list {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .quiz-list li {
+        background: #ffffff;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+        cursor: pointer;
+      }
+      
+      .quiz-list li:hover {
+        background: #007bff;
+        color: white;
+      }
+      
+      .quiz-list li a {
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        display: block;
+      }
+      
+      .quiz-list li:hover a {
+        color: white;
+      }
+      
+      .quiz-list li p {
+        margin: 5px 0 0;
+        font-size: 14px;
+        color: #666;
+      }
+      
+      .quiz-list li:hover p {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {% if request.session.quiz_score is not None %}
+        <div class="score-box">🎉 You scored {{ request.session.quiz_score }} out of {{ request.session.quiz_total }} ({{ request.session.quiz_percentage }}%)!</div>
+
+        {% if request.session.quiz_percentage >= 33 %}
+          <div class="certificate-form">
+            <h3>Claim Your Certificate</h3>
+
+            {% if quiz %}
+              <form action="{% url 'generate_certificate' quiz.id %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="full_name" placeholder="Full Name" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <button type="submit">Download Certificate</button>
+              </form>
+            {% else %}
+              <p style="color: red;">Error: Quiz data is missing</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endif %}
+
+      <h2>Available Quizzes</h2>
+      <ul class="quiz-list">
+        {% for quiz in quizzes %}
+          <li onclick="location.href='{% url 'payment' %}?quiz_id={{ quiz.id }}'">
+            <a href="{% url 'payment' %}?quiz_id={{ quiz.id }}">{{ quiz.title }}</a>
+            <p>📅 Due Date: {{ quiz.due_date }}</p>
+          </li>
+        {% empty %}
+          <li>No quizzes available.</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <script>
+      // Clear quiz session after rendering the page
+      fetch("{% url 'clear_quiz_session' %}", {
+        method: 'POST',
+        headers: { 'X-CSRFToken': '{{ csrf_token }}' }
+      }).catch((error) => console.error('Session clearing failed:', error))
+    </script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Questions</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        width: 60%;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      
+        margin-left: 17%;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      label {
+        font-weight: bold;
+        margin-top: 10px;
+        display: block;
+        color: #555;
+      }
+      input,
+      textarea,
+      select {
+        width: 95%;
+        padding: 12px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .question-section {
+        background: #eef2f7;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+      button {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      #submit-button {
+        background-color: #007bff;
+        color: white;
+      }
+      #submit-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'nav.html' %}
+    <div class="container">
+      <h2>Add Questions</h2>
+      <form method="POST" action="{% url 'add_questions' quiz_id=quiz.id %}">
+        {% csrf_token %}
+        <input type="hidden" id="total_questions" name="total_questions" value="10" />
+
+        <div id="question-container">
+          {% for i in '1234567891'|make_list %}
+            <div class="question-section">
+              <label>Question {{ i }}:</label>
+              <textarea name="question-{{ i }}" required></textarea>
+
+              <label>Options:</label>
+              <input type="text" name="option1-{{ i }}" placeholder="Option 1" required />
+              <input type="text" name="option2-{{ i }}" placeholder="Option 2" required />
+              <input type="text" name="option3-{{ i }}" placeholder="Option 3" required />
+              <input type="text" name="option4-{{ i }}" placeholder="Option 4" required />
+
+              <label>Correct Option:</label>
+              <select name="correct-option-{{ i }}">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+              </select>
+            </div>
+          {% endfor %}
+        </div>
+
+        <button type="submit" id="submit-button">Submit Quiz</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Quiz</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .main-content {
+        background-image: url('https://img.freepik.com/premium-photo/wide-blue-digital-texture-landing-page-concept_670147-34694.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+      }
+      .container {
+        width: 50%;
+        background: rgba(232, 226, 226, 0.43);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-left: 20%;
+        margin-top: 80px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        text-align: center;
+      }
+      h2 {
+        color: #333;
+      }
+      label {
+        font-weight: bold;
+        margin-top: 10px;
+        display: block;
+        color: #555;
+      }
+      input,
+      textarea {
+        width: 96%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      textarea {
+        height: 80px;
+        resize: none;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        background-color: #007bff;
+        color: white;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+      .view-btn {
+        display: block;
+        text-align: center;
+        padding: 12px;
+        margin-top: 10px;
+        font-size: 16px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .view-btn:hover {
+        background-color: #1e7e34;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'nav.html' %}
+    <div class="main-content">
+      <div class="container">
+        <h2>Add Quiz</h2>
+        <form method="POST" action="{% url 'add_quiz' %}">
+          {% csrf_token %}
+          <label>Quiz Title:</label>
+          <input type="text" name="title" required />
+
+          <label>Description:</label>
+          <textarea name="description" required></textarea>
+
+          <label>Due Date:</label>
+          <input type="datetime-local" name="due_date" required />
+
+          <button type="submit">Next</button>
+        </form>
+
+        <!-- View Quiz List Button -->
+        <a href="{% url 'admin_quiz_list' %}" class="view-btn">View Quiz List</a>
+      </div>
+    </div>
+  </body>
+</html>

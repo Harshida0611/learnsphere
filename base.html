@@ -1,0 +1,21 @@
+{% if messages %}
+  <div class="message-container">
+    {% for message in messages %}
+      <p class="message">{{ message }}</p>
+    {% endfor %}
+  </div>
+  <style>
+    .message-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .message {
+      background: #dff0d8;
+      color: #3c763d;
+      padding: 10px;
+      border-radius: 5px;
+      width: 50%;
+      margin: 0 auto;
+    }
+  </style>
+{% endif %}
