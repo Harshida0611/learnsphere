@@ -1,12 +1,12 @@
+# forms.py
+
 from django import forms
-from .models import Quiz, Question
+from .models import UserProfile
 
-class QuizForm(forms.ModelForm):
+class UserProfileForm(forms.ModelForm):
     class Meta:
-        model = Quiz
-        fields = ['title', 'description', 'due_date']
-
-class QuestionForm(forms.ModelForm):
-    class Meta:
-        model = Question
-        fields = ['subject', 'text', 'option1', 'option2', 'option3', 'option4', 'correct_option']
+        model = UserProfile
+        fields = ['first_name', 'last_name', 'phone', 'address', 'email', 'password', 'technology', 'photo']
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
