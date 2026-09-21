@@ -1,0 +1,143 @@
+{% include 'nav.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Announcement</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #f3f4f6, #ffffff);
+        font-family: 'Arial', sans-serif;
+      }
+      .main-content {
+        background-image: url('https://img.freepik.com/premium-photo/wide-blue-digital-texture-landing-page-concept_670147-34694.jpg'); /* Replace with your image path */
+        background-size: cover; /* Ensures the image covers the whole area */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat;
+        height: 100vh;
+      }
+      .form-container {
+        width: 50%;
+        margin: 60px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        margin-left: 20%;
+      }
+      
+      .form-title {
+        text-align: center;
+        color: #007bff;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      
+      .form-group {
+        margin-bottom: 15px;
+      }
+      
+      label {
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .form-control {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        transition: all 0.3s ease-in-out;
+      }
+      
+      .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+        outline: none;
+      }
+      
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        font-weight: bold;
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+      }
+      
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        transition: background 0.3s ease-in-out;
+      }
+      
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+      
+      .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+        color: white;
+        margin-top: 10px;
+        transition: background 0.3s ease-in-out;
+      }
+      
+      .btn-secondary:hover {
+        background-color: #5a6268;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-content">
+      <div class="form-container">
+        <h4 class="form-title">Create New Announcement</h4>
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <div class="form-group">
+            <label for="id_title">Title</label>
+            <input type="text" name="title" id="id_title" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label for="id_description">Description</label>
+            <textarea name="description" id="id_description" class="form-control" rows="4" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="id_date">Date (Optional)</label>
+            <input type="date" name="date" id="id_date" class="form-control" />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Create Announcement</button>
+          <a href="{% url 'announcement_list' %}" class="btn btn-secondary">Back to Announcements</a>
+        </form>
+      </div>
+    </div>
+    <script>
+      // This function sets the current date if the date input is empty
+      document.querySelector('form').addEventListener('submit', function (e) {
+        var dateInput = document.getElementById('id_date')
+      
+        // Check if the date input is empty
+        if (dateInput.value === '') {
+          // Set the current date (formatted as yyyy-mm-dd)
+          var currentDate = new Date().toISOString().split('T')[0]
+          dateInput.value = currentDate
+        }
+      })
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+{% include 'stud_nav.html' %}
+<div class="main-content">
+  <div class="container">
+    <h4 class="text-center mb-4">Announcements</h4>
+
+    <table class="table table-striped table-hover">
+      <thead class="table-primary">
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for announcement in announcements %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ announcement.title }}</td>
+            <td>{{ announcement.description }}</td>
+            <td>
+              {% if announcement.date %}
+                {{ announcement.date|date:'M d, Y' }}
+              {% else %}
+                Not Set
+              {% endif %}
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4" class="text-center text-muted">No announcements yet.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #f3f4f6, #ffffff);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .container {
+    margin-top: 50px;
+    width: 78%;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-left: 11%;
+  }
+  .main-content {
+    background-image: url('https://img.freepik.com/premium-vector/grey-white-abstract-technology-background-hi-tech-digital-connect-high-technology-concept_262356-626.jpg');
+    background-size: cover; /* Ensures the image covers the whole area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-attachment: fixed; /* Fixes the background while scrolling */
+    height: 100vh; /* Ensures it covers the full viewport */
+  }
+  h4 {
+    text-align: center;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table thead {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .btn-primary {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+</style>
