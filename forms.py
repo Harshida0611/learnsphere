@@ -1,7 +1,10 @@
 from django import forms
-from .models import Announcement
+from .models import Assignment
 
-class AnnouncementForm(forms.ModelForm):
+
+class AssignmentForm(forms.ModelForm):
     class Meta:
-        model = Announcement
-        fields = ['title', 'description', 'date']  # Ensure 'date' is listed here
+        model = Assignment
+        fields = ["title", "description", "due_date", "is_completed", "pdf_file"]
+
+
