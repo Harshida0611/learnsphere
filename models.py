@@ -1,24 +1,11 @@
 from django.db import models
+from quiz.models import Quiz  # Import the Quiz model from the quiz app
 
-
-class Quiz(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    due_date = models.DateTimeField()
-
-    def __str__(self):
-        return self.title
-
-class Question(models.Model):
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name="questions")
-    subject = models.CharField(max_length=100)
-    text = models.TextField()
-    option1 = models.CharField(max_length=255)
-    option2 = models.CharField(max_length=255)
-    option3 = models.CharField(max_length=255)
-    option4 = models.CharField(max_length=255)
-    correct_option = models.IntegerField()
+class CertificateRequest(models.Model):
+    full_name = models.CharField(max_length=255)
+    email = models.EmailField()
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)  # Correct ForeignKey reference
+    request_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Question for {self.quiz.title}"
-    
+        return f"{self.full_name} - {self.quiz.title}"
